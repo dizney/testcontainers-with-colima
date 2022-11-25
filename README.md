@@ -66,3 +66,11 @@ MainTest > connect_to_postgres_container() FAILED
 1 test completed, 1 failed
 ```
 
+One workaround for this is to run colima with an ip address assigned by using the --network-address option when starting
+colima. See [this FAQ entry](https://github.com/abiosoft/colima/blob/main/docs/FAQ.md#enable-reachable-ip-address) for
+more information.
+Note that this does not work in the current released (as of nov 2022) version of Colima if you use Macos Ventura, so 
+you will need the HEAD version of Colima. See [issue 458](https://github.com/abiosoft/colima/issues/458).
+
+You also need to set the `TESTCONTAINERS_HOST_OVERRIDE` to `$(colima ls -j | jq -r '.address')` so that testcontainers
+knows how to reach a container. See also [this comment](https://github.com/testcontainers/testcontainers-java/issues/5034#issuecomment-1319812252). 
