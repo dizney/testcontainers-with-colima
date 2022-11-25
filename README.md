@@ -3,7 +3,7 @@
 When using [Colima](https://github.com/abiosoft/colima) as docker engine instead of eg Docker desktop there seems to be
 some
 problems with connecting to containers, at least when eg
-using [testcontainers](https://github.com/testcontainers/testcontainers-java).
+using [testcontainers](https://github.com/testcontainers/testcontainers-java) and you try to connect to a container directly after it started.
 
 First of all you need to do some configuration to let testcontainers know on how to connect to docker. You need to set
 at least the following environment variables:
